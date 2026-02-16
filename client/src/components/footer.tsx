@@ -123,15 +123,21 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 mt-0.5 text-white/50 shrink-0" />
-                  <span className="text-sm text-white/60">Hyderabad, Telangana, India</span>
+                  <span className="text-sm text-white/60">12-9-11/2, First Floor, Gresha Nagar, Narasaraopeta, AP – 522601</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Globe className="w-4 h-4 mt-0.5 text-white/50 shrink-0" />
+                  <span className="text-sm text-white/60">Branches: Hyderabad · USA · Narasaraopeta</span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Phone className="w-4 h-4 text-white/50 shrink-0" />
-                  <span className="text-sm text-white/60">+91 XXXXX XXXXX</span>
+                  <span className="text-sm text-white/60">
+                    <a href="tel:9441255440" className="hover:text-white transition-colors">9441255440</a> · <a href="tel:9701690524" className="hover:text-white transition-colors">9701690524</a>
+                  </span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Mail className="w-4 h-4 text-white/50 shrink-0" />
-                  <span className="text-sm text-white/60">info@keystoneglobal.com</span>
+                  <a href="mailto:keystoneglobaloverseas@gmail.com" className="text-sm text-white/60 hover:text-white transition-colors">keystoneglobaloverseas@gmail.com</a>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Clock className="w-4 h-4 text-white/50 shrink-0" />
