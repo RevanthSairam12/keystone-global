@@ -12,6 +12,7 @@ import {
   Phone,
   Clock,
   MessageCircle,
+  Globe,
   Users,
   GraduationCap,
   Target,
@@ -44,8 +45,33 @@ const whyConsult = [
 
 export default function Contact() {
   useSEO({
-    title: "Contact Us - Keystone Global | Book Free Consultation",
-    description: "Schedule your free consultation with Keystone Global. Get expert guidance for studying abroad from our certified education consultants.",
+    title: "Contact Us - Keystone Global Overseas | Book Free Study Abroad Consultation",
+    description: "Contact Keystone Global Overseas for free study abroad consultation. Branches in Hyderabad, USA & Narasaraopeta. Call 9441255440 or email keystoneglobaloverseas@gmail.com. Visit us at Gresha Nagar, Narasaraopeta, AP.",
+    keywords: "contact Keystone Global, study abroad consultation, free consultation overseas education, Keystone Global Narasaraopeta, Keystone Global Hyderabad, overseas education consultants contact, study abroad help India",
+    canonical: "https://www.keystoneglobaloverseas.in/contact",
+    ogTitle: "Contact Keystone Global Overseas - Free Study Abroad Consultation",
+    ogDescription: "Get in touch for expert overseas education guidance. Call 9441255440 / 9701690524 or visit our branches in Hyderabad, USA & Narasaraopeta.",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Keystone Global Overseas",
+      "url": "https://www.keystoneglobaloverseas.in/contact",
+      "mainEntity": {
+        "@type": "EducationalOrganization",
+        "name": "Keystone Global Overseas",
+        "telephone": ["+919441255440", "+919701690524"],
+        "email": "keystoneglobaloverseas@gmail.com",
+        "url": "https://www.keystoneglobaloverseas.in",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "12-9-11/2, First Floor, Gresha Nagar",
+          "addressLocality": "Narasaraopeta",
+          "addressRegion": "Andhra Pradesh",
+          "postalCode": "522601",
+          "addressCountry": "IN",
+        },
+      },
+    },
   });
 
   return (
@@ -72,25 +98,17 @@ export default function Contact() {
             <div className="space-y-6">
               <Card>
                 <CardContent className="p-6 space-y-5">
-                  <h3 className="text-base font-semibold text-foreground">Contact Information</h3>
+                  <h3 className="text-base font-semibold text-foreground">Our Branches</h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
                         <MapPin className="w-4 h-4 text-primary" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-foreground">Our Office</p>
-                        <p className="text-xs text-muted-foreground">Hyderabad, Telangana, India</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
-                        <Mail className="w-4 h-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-foreground">Email Us</p>
-                        <p className="text-xs text-muted-foreground">info@keystoneglobal.com</p>
-                        <p className="text-xs text-muted-foreground">admissions@keystoneglobal.com</p>
+                        <p className="text-sm font-medium text-foreground">Branch Locations</p>
+                        <p className="text-xs text-muted-foreground">Hyderabad</p>
+                        <p className="text-xs text-muted-foreground">USA</p>
+                        <p className="text-xs text-muted-foreground">Narasaraopeta</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -98,8 +116,36 @@ export default function Contact() {
                         <Phone className="w-4 h-4 text-primary" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-foreground">Call Us</p>
-                        <p className="text-xs text-muted-foreground">+91 XXXXX XXXXX</p>
+                        <p className="text-sm font-medium text-foreground">Contact Numbers</p>
+                        <p className="text-xs text-muted-foreground"><a href="tel:9441255440" className="hover:text-primary transition-colors">9441255440</a></p>
+                        <p className="text-xs text-muted-foreground"><a href="tel:9701690524" className="hover:text-primary transition-colors">9701690524</a></p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
+                        <Mail className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-foreground">Email</p>
+                        <p className="text-xs text-muted-foreground"><a href="mailto:keystoneglobaloverseas@gmail.com" className="hover:text-primary transition-colors">keystoneglobaloverseas@gmail.com</a></p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
+                        <MapPin className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-foreground">Address</p>
+                        <p className="text-xs text-muted-foreground">12-9-11/2, First Floor, Gresha Nagar, Narasaraopeta, Andhra Pradesh, India – 522601</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
+                        <Globe className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-foreground">Website</p>
+                        <p className="text-xs text-muted-foreground"><a href="https://www.keystoneglobaloverseas.in" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">www.keystoneglobaloverseas.in</a></p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -108,7 +154,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-sm font-medium text-foreground">WhatsApp</p>
-                        <p className="text-xs text-muted-foreground">+91 XXXXX XXXXX</p>
+                        <p className="text-xs text-muted-foreground"><a href="https://wa.me/919441255440" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">+91 9441255440</a></p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">

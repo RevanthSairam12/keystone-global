@@ -24,6 +24,7 @@ import {
   Compass,
   HeartHandshake,
   Lock,
+  Phone,
 } from "lucide-react";
 import type { Testimonial } from "@shared/schema";
 import { useSEO } from "@/hooks/use-seo";
@@ -141,8 +142,71 @@ const differentiators = [
 
 export default function Home() {
   useSEO({
-    title: "Keystone Global - Your Gateway to World-Class Education",
-    description: "Expert guidance for students aspiring to study at prestigious universities worldwide. Book a free consultation today.",
+    title: "Keystone Global Overseas - Best Study Abroad Consultancy in India | Free Consultation",
+    description: "Keystone Global Overseas is India's leading study abroad consultancy with branches in Hyderabad, USA & Narasaraopeta. Expert guidance for USA, UK, Canada, Australia, Germany & more. IELTS/TOEFL coaching, visa assistance, university admission support. Call 9441255440.",
+    keywords: "study abroad consultancy, overseas education consultants India, study in USA, study in UK, study in Canada, study in Australia, study in Germany, IELTS coaching, TOEFL preparation, visa assistance India, Keystone Global Overseas, study abroad Hyderabad, study abroad Narasaraopeta, best overseas consultancy, free consultation study abroad, university admission help, SOP writing, education consultants Andhra Pradesh",
+    canonical: "https://www.keystoneglobaloverseas.in",
+    ogTitle: "Keystone Global Overseas - #1 Study Abroad Consultancy | Free Consultation",
+    ogDescription: "Expert overseas education guidance from India's top consultancy. University selection, visa help, IELTS coaching & end-to-end support. Branches in Hyderabad, USA & Narasaraopeta.",
+    ogType: "website",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://www.keystoneglobaloverseas.in/#organization",
+          "name": "Keystone Global Overseas",
+          "url": "https://www.keystoneglobaloverseas.in",
+          "email": "keystoneglobaloverseas@gmail.com",
+          "telephone": ["+919441255440", "+919701690524"],
+          "description": "India's leading study abroad consultancy providing expert guidance for overseas education including university selection, visa assistance, IELTS coaching, and end-to-end student support.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "12-9-11/2, First Floor, Gresha Nagar",
+            "addressLocality": "Narasaraopeta",
+            "addressRegion": "Andhra Pradesh",
+            "postalCode": "522601",
+            "addressCountry": "IN",
+          },
+          "areaServed": ["India", "USA", "UK", "Canada", "Australia", "Germany", "Ireland", "New Zealand", "Singapore"],
+          "sameAs": [],
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.keystoneglobaloverseas.in/#website",
+          "url": "https://www.keystoneglobaloverseas.in",
+          "name": "Keystone Global Overseas",
+          "publisher": { "@id": "https://www.keystoneglobaloverseas.in/#organization" },
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.keystoneglobaloverseas.in/#webpage",
+          "url": "https://www.keystoneglobaloverseas.in",
+          "name": "Keystone Global Overseas - Best Study Abroad Consultancy in India",
+          "isPartOf": { "@id": "https://www.keystoneglobaloverseas.in/#website" },
+          "about": { "@id": "https://www.keystoneglobaloverseas.in/#organization" },
+          "description": "Expert overseas education consultancy with branches in Hyderabad, USA, and Narasaraopeta. Free consultation, university admission, visa help, and IELTS coaching.",
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Overseas Education Consultancy",
+          "provider": { "@id": "https://www.keystoneglobaloverseas.in/#organization" },
+          "areaServed": "India",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Study Abroad Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Free Career Counseling" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "University Selection & Admission" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IELTS / TOEFL / PTE Coaching" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Visa Consultation & Assistance" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SOP & LOR Writing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pre-Departure Orientation" } },
+            ],
+          },
+        },
+      ],
+    },
   });
 
   const { data: testimonials } = useQuery<Testimonial[]>({
@@ -152,52 +216,94 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center" data-testid="section-hero">
+      <section className="relative min-h-[90vh] flex items-center" data-testid="section-hero" aria-label="Hero - Keystone Global Overseas Study Abroad Consultancy">
         <div className="absolute inset-0">
           <img
             src="/images/hero-campus.png"
-            alt="University campus"
+            alt="Students celebrating graduation at a prestigious international university campus - Keystone Global Overseas study abroad consultancy"
             className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/40" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="max-w-2xl"
-          >
-            <motion.h1
-              variants={fadeUp}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
-              data-testid="text-hero-title"
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
+          <div className="grid lg:grid-cols-5 gap-12 items-center">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={stagger}
+              className="lg:col-span-3"
             >
-              Your Gateway to{" "}
-              <span className="text-chart-2">World-Class</span>{" "}
-              Education
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              className="text-lg sm:text-xl text-white/80 mb-8 leading-relaxed"
-            >
-              Expert guidance for students aspiring to study at prestigious universities worldwide. Building bridges to your global future.
-            </motion.p>
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-              <Link href="/contact">
-                <Button size="lg" data-testid="button-hero-consultation">
-                  <GraduationCap className="w-5 h-5 mr-2" />
-                  Book Free Consultation
-                </Button>
-              </Link>
-              <Link href="/destinations">
-                <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-white/30" data-testid="button-hero-destinations">
-                  Explore Destinations
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
+              <motion.div variants={fadeUp} className="mb-4">
+                <Badge variant="secondary" className="bg-chart-2/20 text-chart-2 border-chart-2/30 text-sm px-4 py-1.5">
+                  🎓 India's Trusted Study Abroad Consultancy
+                </Badge>
+              </motion.div>
+              <motion.h1
+                variants={fadeUp}
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
+                data-testid="text-hero-title"
+              >
+                Your Gateway to{" "}
+                <span className="text-chart-2">World-Class</span>{" "}
+                Education Abroad
+              </motion.h1>
+              <motion.p
+                variants={fadeUp}
+                className="text-lg sm:text-xl text-white/80 mb-4 leading-relaxed max-w-xl"
+              >
+                Expert overseas education guidance from Hyderabad, USA &amp; Narasaraopeta. University admissions, visa assistance, IELTS coaching &amp; complete support for your global future.
+              </motion.p>
+              <motion.p variants={fadeUp} className="text-sm text-white/60 mb-8 flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-chart-2" />
+                Free consultation &middot; 500+ successful admits &middot; 8+ countries
+              </motion.p>
+              <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+                <Link href="/contact">
+                  <Button size="lg" className="text-base px-8" data-testid="button-hero-consultation">
+                    <GraduationCap className="w-5 h-5 mr-2" />
+                    Book Free Consultation
+                  </Button>
+                </Link>
+                <Link href="/destinations">
+                  <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-white/30 text-base" data-testid="button-hero-destinations">
+                    Explore Destinations
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+              </motion.div>
+              <motion.div variants={fadeUp} className="mt-6 flex items-center gap-2 text-xs text-white/50">
+                <Phone className="w-3.5 h-3.5" />
+                <span>Call us: <a href="tel:9441255440" className="text-white/70 hover:text-chart-2 transition-colors">9441255440</a> | <a href="tel:9701690524" className="text-white/70 hover:text-chart-2 transition-colors">9701690524</a></span>
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Trust signals / stats column */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={stagger}
+              className="lg:col-span-2 hidden lg:block"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { num: "500+", label: "Students Placed", icon: Users },
+                  { num: "8+", label: "Countries Covered", icon: Globe },
+                  { num: "50+", label: "Partner Universities", icon: GraduationCap },
+                  { num: "98%", label: "Visa Success Rate", icon: Shield },
+                ].map((stat) => (
+                  <motion.div key={stat.label} variants={fadeUp}>
+                    <div className="bg-white/10 backdrop-blur-md rounded-lg p-5 text-center border border-white/10 hover:bg-white/15 transition-colors">
+                      <stat.icon className="w-6 h-6 text-chart-2 mx-auto mb-2" />
+                      <p className="text-2xl font-bold text-white">{stat.num}</p>
+                      <p className="text-xs text-white/60 mt-1">{stat.label}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
