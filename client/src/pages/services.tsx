@@ -201,6 +201,7 @@ export default function Services() {
               viewport={{ once: true, margin: "-80px" }}
               variants={fadeUp}
               data-testid={`section-service-${service.id}`}
+              style={{ scrollMarginTop: "100px" }}
             >
               <Card>
                 <CardContent className="p-8">

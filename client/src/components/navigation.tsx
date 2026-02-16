@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,7 +32,7 @@ const destinations = [
 ];
 
 export default function Navigation() {
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -49,6 +49,32 @@ export default function Navigation() {
   useEffect(() => {
     setMobileOpen(false);
   }, [location]);
+
+  const navigateToSection = useCallback((href: string) => {
+    const [path, hash] = href.split("#");
+    if (!hash) {
+      navigate(path);
+      return;
+    }
+
+    const scrollToHash = () => {
+      const el = document.getElementById(hash);
+      if (el) {
+        const offset = 100; // account for fixed header
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    };
+
+    if (location === path) {
+      // Already on the page, just scroll
+      scrollToHash();
+    } else {
+      // Navigate first, then scroll after render
+      navigate(path);
+      setTimeout(scrollToHash, 300);
+    }
+  }, [location, navigate]);
 
   const isActive = (path: string) => location === path;
 
@@ -124,11 +150,14 @@ export default function Navigation() {
                     className="absolute top-full left-0 mt-1 w-56 bg-popover border border-popover-border rounded-md shadow-lg py-1"
                   >
                     {services.map((s) => (
-                      <Link key={s.name} href={s.href}>
-                        <span className="block px-4 py-2.5 text-sm text-popover-foreground hover-elevate cursor-pointer" data-testid={`nav-service-${s.name.toLowerCase().replace(/\s/g, '-')}`}>
-                          {s.name}
-                        </span>
-                      </Link>
+                      <span
+                        key={s.name}
+                        onClick={() => { setServicesOpen(false); navigateToSection(s.href); }}
+                        className="block px-4 py-2.5 text-sm text-popover-foreground hover-elevate cursor-pointer"
+                        data-testid={`nav-service-${s.name.toLowerCase().replace(/\s/g, '-')}`}
+                      >
+                        {s.name}
+                      </span>
                     ))}
                   </motion.div>
                 )}
@@ -242,11 +271,13 @@ export default function Navigation() {
                       className="overflow-hidden"
                     >
                       {services.map((s) => (
-                        <Link key={s.name} href={s.href}>
-                          <span className="block px-6 py-2 text-sm text-muted-foreground cursor-pointer">
-                            {s.name}
-                          </span>
-                        </Link>
+                        <span
+                          key={s.name}
+                          onClick={() => { setMobileOpen(false); navigateToSection(s.href); }}
+                          className="block px-6 py-2 text-sm text-muted-foreground cursor-pointer"
+                        >
+                          {s.name}
+                        </span>
                       ))}
                     </motion.div>
                   )}
